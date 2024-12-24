@@ -14,6 +14,9 @@ import java.util.List;
 
 @Controller
 public class Project_Apartment_Controller {
+
+
+
     @GetMapping("/home")
     public String homepage(){
         return "Project_Home_Page";
@@ -23,6 +26,8 @@ public class Project_Apartment_Controller {
     public String datapage(){
         return "data";
     }
+
+
 
 
 
