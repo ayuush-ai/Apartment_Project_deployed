@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Date and Time Records</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .link a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px 20px;
+            border: 2px solid #4CAF50;
+            border-radius: 6px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .link a:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Records of Visitors in 24 hours</h1>
+
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Task</th>
+            <th>Apartment Number</th>
+            <th>Date Created</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Thymeleaf loop to iterate over the list -->
+        <tr th:each="item : ${dateAndTimeList}">
+            <td th:text="${item.id}"></td>
+            <td th:text="${item.purpose}"></td>
+            <td th:text="${item.apartment_number}"></td>
+            <td th:text="${item.createdAt}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="link">
+        <a href="/data">Back to Home</a>
+    </div>
+</div>
+
+</body>
+</html>

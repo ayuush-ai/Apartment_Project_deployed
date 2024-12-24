@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>All Project Work Records</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin-top: 30px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Button / Link Styling */
+        .link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .link a {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 12px 20px;
+            border-radius: 6px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .link a:hover {
+            background-color: #45a049;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>All Records</h1>
+
+    <!-- Table to display the project work records -->
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Purpose</th>
+            <th>Apartment Number</th>
+            <th>Created At</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Thymeleaf loop to iterate through the project work list -->
+        <tr th:each="item : ${projectWorkList}">
+            <td th:text="${item.id}"></td>
+            <td th:text="${item.purpose}"></td>
+            <td th:text="${item.apartment_number}"></td>
+            <td th:text="${item.createdAt}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!-- Back to Home Link -->
+    <div class="link">
+        <a href="/data">Back to Home</a>
+    </div>
+</div>
+
+</body>
+</html>

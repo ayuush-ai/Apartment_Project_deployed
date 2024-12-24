@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Apartment Management Registration</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.3.0/material.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+        }
+
+        .form-container {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .form-container h1 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #3f51b5;
+            text-align: center;
+        }
+
+        .form-field {
+            margin-bottom: 1.5rem;
+        }
+
+        .mdl-textfield__label {
+            color: #757575;
+        }
+
+        .submit-button {
+            background-color: #3f51b5;
+            color: #fff;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .submit-button:hover {
+            background-color: #303f9f;
+        }
+    </style>
+</head>
+<body>
+<div class="form-container">
+    <h1>Apartment Registration</h1>
+    <form action="#" th:action="@{/submit}" th:object="${projectWorkList}" method="post">
+        <div class="form-field mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" id="purpose" th:field="*{purpose}" required />
+            <label class="mdl-textfield__label" for="purpose">Purpose</label>
+        </div>
+
+        <div class="form-field mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="number" id="apartment_number" th:field="*{apartment_number}" required />
+            <label class="mdl-textfield__label" for="apartment_number">Apartment Number</label>
+        </div>
+
+        <button type="submit" class="submit-button">Submit</button>
+    </form>
+    <br>
+    <a href="/home">Go Back to Registration Form</a>
+</div>
+</body>
+</html>
