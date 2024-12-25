@@ -7,7 +7,7 @@ import jakarta.persistence.Id;
 
 import java.time.LocalDateTime;
 @Entity
-
+//data jpa->hibernate
 public class Project_work_list {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
